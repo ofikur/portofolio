@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   // --- INISIALISASI EMAILJS ---
-  // Kunci publikmu sudah dimasukkan di sini.
   (function () {
     emailjs.init({
       publicKey: "dPhDh20W3NC88tTG0",
@@ -359,7 +358,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function populateSkills() {
     skillsTrack.innerHTML = "";
     const fragment = document.createDocumentFragment();
-    // Tambahkan dua kali untuk efek loop
     for (let i = 0; i < 2; i++) {
       skillsList.forEach((skill) => {
         const skillDiv = document.createElement("div");
@@ -484,6 +482,29 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   skillsCarousel.style.cursor = "grab";
+
+  // --- 👻 PROTEKSI LEVEL 1: MENGGANGGU PENGGUNA AWAM 👻 ---
+  // Mematikan klik kanan
+  document.addEventListener("contextmenu", (event) => event.preventDefault());
+  // Mematikan beberapa shortcut keyboard untuk membuka inspect element
+  document.onkeydown = function (e) {
+    // F12
+    if (e.keyCode == 123) {
+      return false;
+    }
+    // Ctrl+Shift+I
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+      return false;
+    }
+    // Ctrl+Shift+J
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+      return false;
+    }
+    // Ctrl+U
+    if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+      return false;
+    }
+  };
 
   // --- EVENT LISTENERS & INISIALISASI ---
   window.addEventListener("scroll", () => {
