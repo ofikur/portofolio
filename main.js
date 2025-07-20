@@ -2,6 +2,24 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- DEKLARASI VARIABEL GLOBAL UNTUK THREE.JS ---
   let scene, camera, renderer, gridHelper;
 
+  // --- DAFTAR SKILL DENGAN LOGO ---
+  const skillsList = [
+    { name: "HTML5", icon: "devicon-html5-plain" },
+    { name: "CSS3", icon: "devicon-css3-plain" },
+    { name: "JavaScript", icon: "devicon-javascript-plain" },
+    { name: "React.js", icon: "devicon-react-original" },
+    { name: "Vue.js", icon: "devicon-vuejs-plain" },
+    { name: "TypeScript", icon: "devicon-typescript-plain" },
+    { name: "Node.js", icon: "devicon-nodejs-plain" },
+    { name: "Sass/SCSS", icon: "devicon-sass-original" },
+    { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+    { name: "Bootstrap", icon: "devicon-bootstrap-plain" },
+    { name: "Webpack", icon: "devicon-webpack-plain" },
+    { name: "Git", icon: "devicon-git-plain" },
+    { name: "Responsive Design", icon: "fas fa-mobile-alt" },
+    { name: "REST API", icon: "fas fa-cogs" },
+  ];
+
   // --- SISTEM BAHASA ---
   let currentLang = "id"; // Bahasa default
   const languageData = {
@@ -300,22 +318,44 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- SKILLS CAROUSEL LOGIC ---
   const skillsCarousel = document.querySelector(".skills-carousel");
   const skillsTrack = document.getElementById("skillsTrack");
+
+  function populateSkills() {
+    skillsTrack.innerHTML = "";
+    const fragment = document.createDocumentFragment();
+    // Tambahkan dua kali untuk efek loop
+    for (let i = 0; i < 2; i++) {
+      skillsList.forEach((skill) => {
+        const skillDiv = document.createElement("div");
+        skillDiv.className = "skill-item";
+        skillDiv.innerHTML = `<i class="${skill.icon}"></i><span>${skill.name}</span>`;
+        fragment.appendChild(skillDiv);
+      });
+    }
+    skillsTrack.appendChild(fragment);
+  }
+
   let skillsPosition = 0;
   let lastScrollY = window.pageYOffset;
   let autoScrollInterval;
   let scrollTimeout;
-  const skillsTrackWidth = skillsTrack.scrollWidth / 2;
+  let skillsTrackWidth = 0;
+
+  function updateSkillsTrackWidth() {
+    skillsTrackWidth = skillsTrack.scrollWidth / 2;
+  }
 
   let isDragging = false;
   let startX;
   let startScrollLeft;
 
   function applyTransform() {
-    while (skillsPosition > 0) {
-      skillsPosition -= skillsTrackWidth;
-    }
-    while (skillsPosition <= -skillsTrackWidth) {
-      skillsPosition += skillsTrackWidth;
+    if (skillsTrackWidth > 0) {
+      while (skillsPosition > 0) {
+        skillsPosition -= skillsTrackWidth;
+      }
+      while (skillsPosition <= -skillsTrackWidth) {
+        skillsPosition += skillsTrackWidth;
+      }
     }
     skillsTrack.style.transform = `translateX(${skillsPosition}px)`;
   }
@@ -421,6 +461,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Inisialisasi semua fungsi saat halaman dimuat
   initThreeJSBackground();
+  populateSkills(); // Buat item skill
+  updateSkillsTrackWidth(); // Hitung lebar track setelah item dibuat
   updateActiveNav();
   setLanguage(currentLang); // Set bahasa awal
   startAutoScroll();

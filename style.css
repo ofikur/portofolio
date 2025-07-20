@@ -160,7 +160,6 @@ nav {
   gap: 1rem;
 }
 
-/* Gaya Tombol Kontrol di Header (Termasuk Tombol Bahasa) */
 .theme-toggle,
 .menu-toggle,
 .lang-toggle {
@@ -444,11 +443,23 @@ main {
 }
 
 .skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 0 2rem;
   font-size: 1.1rem;
   font-weight: bold;
   color: var(--text-color);
   border-right: 1px solid var(--border-color);
+}
+
+.skill-item i {
+  font-size: 2rem;
+  color: var(--secondary-color);
+}
+
+[data-theme="light"] .skill-item i {
+  color: var(--text-color);
 }
 
 /* --- PROJECTS SECTION --- */
