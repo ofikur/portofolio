@@ -10,7 +10,7 @@
 
 <p align="center" style="font-size:1.3rem;">
   <b>MOH. OFIKURRAHMAN</b> <br/>
-  <span style="color:#FFD600; font-weight:bold;">Frontend Web Developer</span> <br/>
+  <span style="color:#FFD600; font-weight:bold;">Front-End Web Developer</span> <br/>
   <span style="font-size:1.1rem; color:#888;">Menciptakan pengalaman web modern, interaktif, dan responsif</span>
 </p>
 
@@ -22,14 +22,14 @@
 </p>
 
 <p align="center" style="margin-top: 10px;">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Hi%2C+Saya+Ofikurrahman!;Frontend+Web+Developer+%7C+Modern+UI%2FUX;React%2C+Vue%2C+Node%2C+dan+lainnya!;Terbuka+untuk+Kolaborasi+dan+Proyek+Freelance"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Hi%2C+Saya+Ofikurrahman!;Seorang+Front-End+Web+Developer;React%2C+Vue%2C+Node%2C+dan+lainnya!;Terbuka+untuk+Kolaborasi+dan+Proyek+Freelance"/>
 </p>
 
 ---
 
 ## 🚀 Tentang Portfolio
 
-Portfolio ini menampilkan karya, keahlian, dan pengalaman saya sebagai Frontend Web Developer. Dibangun dengan desain modern, animasi interaktif, dan teknologi terbaru untuk memberikan pengalaman web yang elegan dan responsif.
+Portfolio ini menampilkan karya, keahlian, dan pengalaman saya sebagai Front-End Web Developer. Dibangun dengan desain modern, animasi interaktif, dan teknologi terbaru untuk memberikan pengalaman web yang elegan dan responsif.
 
 ### ✨ Fitur Utama
 - **Desain Modern & Responsif**
