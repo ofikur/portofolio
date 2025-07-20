@@ -288,37 +288,44 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
-  // --- FUNGSI KIRIM PESAN YANG SUDAH BERFUNGSI ---
+  // --- FUNGSI KIRIM PESAN DENGAN VALIDASI EMAIL ---
   window.handleSubmit = function (event) {
     event.preventDefault();
-    const submitBtn = event.target.querySelector(".submit-btn");
-    const serviceID = "service_9ry8bp6"; // Service ID kamu
-    const templateID = "template_hmf52kt"; // Template ID kamu
 
-    // Mengubah tombol menjadi mode "Mengirim"
+    // Validasi email
+    const emailInput = event.target.querySelector("#email");
+    const emailValue = emailInput.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(emailValue)) {
+      alert(
+        "Format email tidak valid. Harap masukkan alamat email yang benar ya!"
+      );
+      emailInput.focus();
+      return;
+    }
+
+    const submitBtn = event.target.querySelector(".submit-btn");
+    const serviceID = "service_9ry8bp6";
+    const templateID = "template_hmf52kt";
+
     submitBtn.innerHTML = languageData.formSendingBtn[currentLang];
     submitBtn.disabled = true;
 
-    // Mengirim formulir menggunakan EmailJS
     emailjs.sendForm(serviceID, templateID, event.target).then(
       () => {
-        // Jika berhasil
         const successMessage = document.getElementById("successMessage");
         successMessage.classList.add("show");
-        event.target.reset(); // Reset form
-        // Kembalikan tombol ke keadaan semula
+        event.target.reset();
         submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span data-key="formSubmitBtn">${languageData.formSubmitBtn[currentLang]}</span>`;
         submitBtn.disabled = false;
-        // Sembunyikan pesan sukses setelah 3 detik
         setTimeout(() => successMessage.classList.remove("show"), 3000);
       },
       (err) => {
-        // Jika gagal
         alert(
           "Oops! Terjadi kesalahan. Coba lagi nanti ya. Error: " +
             JSON.stringify(err)
-        ); // Tampilkan pesan error
-        // Kembalikan tombol ke keadaan semula
+        );
         submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span data-key="formSubmitBtn">${languageData.formSubmitBtn[currentLang]}</span>`;
         submitBtn.disabled = false;
       }
@@ -491,9 +498,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Inisialisasi semua fungsi saat halaman dimuat
   initThreeJSBackground();
-  populateSkills(); // Buat item skill
-  updateSkillsTrackWidth(); // Hitung lebar track setelah item dibuat
+  populateSkills();
+  updateSkillsTrackWidth();
   updateActiveNav();
-  setLanguage(currentLang); // Set bahasa awal
+  setLanguage(currentLang);
   startAutoScroll();
 });
