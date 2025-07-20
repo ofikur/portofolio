@@ -18,7 +18,7 @@
 ---
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Selamat+Datang+di+Portfolio+Saya!;Frontend+Web+Developer+%7C+Modern+%26+Responsif;React%2C+Vue%2C+Node%2C+dan+lainnya!"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Selamat+Datang+di+Portfolio+Saya!;Frontend+Web+Developer+%7C"/>
 </p>
 
 ---
