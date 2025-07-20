@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // --- INISIALISASI EMAILJS ---
+  // Kunci publikmu sudah dimasukkan di sini.
+  (function () {
+    emailjs.init({
+      publicKey: "dPhDh20W3NC88tTG0",
+    });
+  })();
+
   // --- DEKLARASI VARIABEL GLOBAL UNTUK THREE.JS ---
   let scene, camera, renderer, gridHelper;
 
@@ -280,19 +288,41 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
+  // --- FUNGSI KIRIM PESAN YANG SUDAH BERFUNGSI ---
   window.handleSubmit = function (event) {
     event.preventDefault();
     const submitBtn = event.target.querySelector(".submit-btn");
+    const serviceID = "service_9ry8bp6"; // Service ID kamu
+    const templateID = "template_hmf52kt"; // Template ID kamu
+
+    // Mengubah tombol menjadi mode "Mengirim"
     submitBtn.innerHTML = languageData.formSendingBtn[currentLang];
     submitBtn.disabled = true;
-    setTimeout(() => {
-      const successMessage = document.getElementById("successMessage");
-      successMessage.classList.add("show");
-      event.target.reset();
-      submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span data-key="formSubmitBtn">${languageData.formSubmitBtn[currentLang]}</span>`;
-      submitBtn.disabled = false;
-      setTimeout(() => successMessage.classList.remove("show"), 3000);
-    }, 2000);
+
+    // Mengirim formulir menggunakan EmailJS
+    emailjs.sendForm(serviceID, templateID, event.target).then(
+      () => {
+        // Jika berhasil
+        const successMessage = document.getElementById("successMessage");
+        successMessage.classList.add("show");
+        event.target.reset(); // Reset form
+        // Kembalikan tombol ke keadaan semula
+        submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span data-key="formSubmitBtn">${languageData.formSubmitBtn[currentLang]}</span>`;
+        submitBtn.disabled = false;
+        // Sembunyikan pesan sukses setelah 3 detik
+        setTimeout(() => successMessage.classList.remove("show"), 3000);
+      },
+      (err) => {
+        // Jika gagal
+        alert(
+          "Oops! Terjadi kesalahan. Coba lagi nanti ya. Error: " +
+            JSON.stringify(err)
+        ); // Tampilkan pesan error
+        // Kembalikan tombol ke keadaan semula
+        submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span data-key="formSubmitBtn">${languageData.formSubmitBtn[currentLang]}</span>`;
+        submitBtn.disabled = false;
+      }
+    );
   };
 
   function typeWriterEffect(text) {
