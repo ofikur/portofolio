@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOH. OFIKURRAHMAN - Frontend Web Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-grid">
+      <canvas class="grid-canvas" id="bgCanvas"></canvas>
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo">
+          <i class="fas fa-terminal"></i>
+          <span class="logo-desktop" data-key="logoTextDesktop"
+            >PORTFOLIO.exe</span
+          >
+          <span class="logo-mobile" data-key="logoTextMobile">PORTFOLIO</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="#home" class="nav-link active" data-key="navHome">Home</a>
+          </li>
+          <li>
+            <a href="#skills" class="nav-link" data-key="navSkills">Skills</a>
+          </li>
+          <li>
+            <a href="#projects" class="nav-link" data-key="navProjects"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="nav-link" data-key="navContact"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <div class="nav-controls">
+          <button
+            class="lang-toggle"
+            onclick="switchLanguage()"
+            id="langSwitcherBtn"
+          >
+            <i class="fas fa-globe"></i>
+            <span>EN</span>
+          </button>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+          </button>
+          <button class="menu-toggle" onclick="toggleMobileNav()">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="nav-links">
+        <li>
+          <a
+            href="#home"
+            class="nav-link"
+            onclick="closeMobileNav()"
+            data-key="navHomeMobile"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="#skills"
+            class="nav-link"
+            onclick="closeMobileNav()"
+            data-key="navSkillsMobile"
+            >Skills</a
+          >
+        </li>
+        <li>
+          <a
+            href="#projects"
+            class="nav-link"
+            onclick="closeMobileNav()"
+            data-key="navProjectsMobile"
+            >Projects</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="nav-link"
+            onclick="closeMobileNav()"
+            data-key="navContactMobile"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1 id="hero-title"></h1>
+              <div class="subtitle" data-key="heroSubtitle">
+                Frontend Web Developer
+              </div>
+              <p data-key="heroDesc1">
+                Mengembangkan pengalaman web yang elegan dan fungsional dengan
+                teknologi modern dan desain yang responsif.
+              </p>
+              <div class="hero-buttons">
+                <a href="#projects" class="btn">
+                  <i class="fas fa-folder-open"></i>
+                  <span data-key="btnViewPortfolio">Lihat Portfolio</span>
+                </a>
+                <a href="CV-MOH-OFIKURRAHMAN.pdf" class="btn" download>
+                  <i class="fas fa-download"></i>
+                  <span data-key="btnDownloadCV">Download CV</span>
+                </a>
+                <a href="#contact" class="btn secondary">
+                  <i class="fas fa-paper-plane"></i>
+                  <span data-key="btnContactMe">Hubungi Saya</span>
+                </a>
+              </div>
+            </div>
+            <div class="hero-image">
+              <img
+                src="profile.jpg"
+                alt="MOH. OFIKURRAHMAN"
+                class="profile-image"
+                onerror="this.onerror=null;this.src='https://placehold.co/300x300/0a0a0a/ffff00?text=Error';"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills">
+        <div class="container">
+          <h2 class="fade-in" data-key="skillsTitle">&gt; Technical Skills</h2>
+          <div class="skills-carousel">
+            <div class="skills-track" id="skillsTrack">
+              <div class="skill-item">HTML5</div>
+              <div class="skill-item">CSS3</div>
+              <div class="skill-item">JavaScript</div>
+              <div class="skill-item">React.js</div>
+              <div class="skill-item">Vue.js</div>
+              <div class="skill-item">TypeScript</div>
+              <div class="skill-item">Node.js</div>
+              <div class="skill-item">Sass/SCSS</div>
+              <div class="skill-item">Tailwind CSS</div>
+              <div class="skill-item">Bootstrap</div>
+              <div class="skill-item">Webpack</div>
+              <div class="skill-item">Git</div>
+              <div class="skill-item">Responsive Design</div>
+              <div class="skill-item">REST API</div>
+              <div class="skill-item">HTML5</div>
+              <div class="skill-item">CSS3</div>
+              <div class="skill-item">JavaScript</div>
+              <div class="skill-item">React.js</div>
+              <div class="skill-item">Vue.js</div>
+              <div class="skill-item">TypeScript</div>
+              <div class="skill-item">Node.js</div>
+              <div class="skill-item">Sass/SCSS</div>
+              <div class="skill-item">Tailwind CSS</div>
+              <div class="skill-item">Bootstrap</div>
+              <div class="skill-item">Webpack</div>
+              <div class="skill-item">Git</div>
+              <div class="skill-item">Responsive Design</div>
+              <div class="skill-item">REST API</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <div class="container">
+          <h2 class="fade-in" data-key="projectsTitle">
+            &gt; Featured Projects
+          </h2>
+          <div class="projects-grid">
+            <div class="project-card fade-in">
+              <h3 data-key="project1Title">
+                <i class="fas fa-shopping-cart"></i> E-Commerce Platform
+              </h3>
+              <p data-key="project1Desc">
+                Platform e-commerce modern dengan React.js dan Node.js. Fitur
+                lengkap termasuk keranjang belanja, sistem pembayaran, dan
+                dashboard admin yang responsif.
+              </p>
+              <br />
+              <p>
+                <strong>Tech Stack:</strong> React, Node.js, MongoDB, Stripe
+                API, Redux
+              </p>
+            </div>
+            <div class="project-card fade-in">
+              <h3 data-key="project2Title">
+                <i class="fas fa-globe"></i> Portfolio Website
+              </h3>
+              <p data-key="project2Desc">
+                Website portfolio responsif dengan animasi smooth dan desain
+                modern. Dioptimalkan untuk SEO dan performa tinggi dengan skor
+                Lighthouse 95+.
+              </p>
+              <br />
+              <p>
+                <strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, GSAP,
+                Three.js
+              </p>
+            </div>
+            <div class="project-card fade-in">
+              <h3 data-key="project3Title">
+                <i class="fas fa-tasks"></i> Task Management App
+              </h3>
+              <p data-key="project3Desc">
+                Aplikasi manajemen tugas dengan drag & drop, pembaruan
+                real-time, dan kolaborasi tim. Antarmuka yang intuitif dan ramah
+                pengguna.
+              </p>
+              <br />
+              <p>
+                <strong>Tech Stack:</strong> Vue.js, Socket.io, Firebase,
+                Vuetify
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="fade-in" data-key="contactTitle">&gt; Get In Touch</h2>
+          <p class="fade-in" data-key="contactSubtitle">
+            Mari berkolaborasi untuk menciptakan pengalaman web yang luar biasa
+          </p>
+          <br />
+          <div class="contact-content">
+            <div class="contact-links fade-in">
+              <a
+                href="mailto:moh.ofikurxyz@gmail.com"
+                class="contact-link"
+                data-key="contactEmail"
+              >
+                <i class="fas fa-envelope"></i> Email Me
+              </a>
+              <a
+                href="https://github.com/ofikur"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a
+                href="https://linkedin.com/in/ofikur"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a
+                href="https://instagram.com/ofikurr"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+            </div>
+            <form
+              class="message-form fade-in"
+              id="messageForm"
+              onsubmit="handleSubmit(event)"
+            >
+              <h3
+                style="
+                  margin-bottom: 1.5rem;
+                  color: var(--accent-color);
+                  text-align: center;
+                "
+                data-key="formTitle"
+              >
+                <i class="fas fa-paper-plane"></i> Kirim Pesan
+              </h3>
+              <div class="form-group">
+                <label for="name" data-key="formLabelName"
+                  ><i class="fas fa-user"></i> Nama Lengkap *</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  data-key-placeholder="formPlaceholderName"
+                  placeholder="Masukkan nama lengkap Anda"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email" data-key="formLabelEmail"
+                  ><i class="fas fa-envelope"></i> Email *</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  data-key-placeholder="formPlaceholderEmail"
+                  placeholder="nama@email.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject" data-key="formLabelSubject"
+                  ><i class="fas fa-tag"></i> Subjek</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  data-key-placeholder="formPlaceholderSubject"
+                  placeholder="Subjek pesan (opsional)"
+                />
+              </div>
+              <div class="form-group">
+                <label for="message" data-key="formLabelMessage"
+                  ><i class="fas fa-comment"></i> Pesan *</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  data-key-placeholder="formPlaceholderMessage"
+                  placeholder="Tulis pesan Anda di sini..."
+                ></textarea>
+              </div>
+              <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                <span data-key="formSubmitBtn">Kirim Pesan</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p data-key="footerCopyright">
+          &copy; 2025 MOH. OFIKURRAHMAN. Dibuat dengan &lt;code&gt; dan
+          <i class="fas fa-coffee"></i>
+        </p>
+        <p style="margin-top: 0.5rem; opacity: 0.7" data-key="footerRole">
+          Frontend Web Developer
+        </p>
+      </div>
+    </footer>
+
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-check-circle"></i>
+      <span data-key="successMsg">Pesan berhasil dikirim!</span>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
