@@ -76,5 +76,5 @@ Proyek ini open-source dan bebas digunakan untuk inspirasi atau pengembangan pri
 ---
 
 <p align="center">
-  Dibuat dengan <code>&lt;code&gt;</code> dan <i class="fas fa-coffee"></i> oleh <b>MOH. OFIKURRAHMAN</b>
+  Dibuat dengan <code>&lt;code&gt;</code> dan ☕ oleh <b>MOH. OFIKURRAHMAN</b>
 </p>
