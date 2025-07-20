@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     navProjectsMobile: { id: "Proyek", en: "Projects" },
     navContactMobile: { id: "Kontak", en: "Contact" },
     heroSubtitle: {
-      id: "Frontend Web Developer",
-      en: "Frontend Web Developer",
+      id: "Front-End Web Developer",
+      en: "Front-End Web Developer",
     },
     heroDesc1: {
       id: "Mengembangkan pengalaman web yang elegan dan fungsional dengan teknologi modern dan desain yang responsif.",
@@ -115,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
       en: '&copy; 2025 MOH. OFIKURRAHMAN. Created with &lt;code&gt; and <i class="fas fa-coffee"></i>',
     },
     footerRole: {
-      id: "Frontend Web Developer",
-      en: "Frontend Web Developer",
+      id: "Front-End Web Developer",
+      en: "Front-End Web Developer",
     },
   };
 
