@@ -1,81 +1,101 @@
 <!-- README.md untuk Portfolio MOH. OFIKURRAHMAN -->
 
 <p align="center">
-  <img src="profile.jpg" alt="Profile" width="180" style="border-radius:50%; box-shadow:0 0 20px #FFD600;">
+  <img src="profile.jpg" alt="Profile" width="160" style="border-radius:50%; box-shadow:0 0 20px #FFD600;">
 </p>
 
-<h1 align="center" style="color:#FFD600; font-size:3rem; text-shadow:2px 2px 0 #0a0a0a;">PORTFOLIO.exe</h1>
+<h1 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=36&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=PORTFOLIO.exe"/>
+</h1>
 
 <p align="center">
   <b>MOH. OFIKURRAHMAN</b> <br/>
   <i>Frontend Web Developer</i> <br/>
-  <a href="mailto:moh.ofikurxyz@gmail.com">Email</a> •
-  <a href="https://github.com/ofikur">GitHub</a> •
-  <a href="https://linkedin.com/in/ofikur">LinkedIn</a> •
-  <a href="https://instagram.com/ofikurr">Instagram</a>
+  <a href="mailto:moh.ofikurxyz@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white"/></a>
+  <a href="https://github.com/ofikur"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
+  <a href="https://linkedin.com/in/ofikur"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white"/></a>
+  <a href="https://instagram.com/ofikurr"><img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white"/></a>
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Selamat+Datang+di+Portfolio+Saya!;Frontend+Web+Developer+%7C"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Selamat+Datang+di+Portfolio+Saya!;Frontend+Web+Developer+%7C+Modern+%26+Responsif;React%2C+Vue%2C+Node%2C+dan+lainnya!"/>
 </p>
 
 ---
 
-## 🚀 Tentang Portfolio
+<details>
+<summary><b>✨ Tentang Portfolio</b></summary>
 
-Portfolio ini menampilkan karya, keahlian, dan pengalaman saya sebagai Frontend Web Developer. Dibangun dengan desain modern, animasi interaktif, dan teknologi terbaru untuk memberikan pengalaman web yang elegan dan responsif.
+Portfolio ini menampilkan karya, keahlian, dan pengalaman saya sebagai **Frontend Web Developer**. Dibangun dengan desain modern, animasi interaktif, dan teknologi terbaru untuk memberikan pengalaman web yang elegan dan responsif.
 
-### ✨ Fitur Utama
-- **Desain Modern & Responsif**
-- **Animasi Smooth** (Three.js, GSAP)
-- **Dark/Light Mode**
-- **Multi-Bahasa (EN/ID)**
-- **Formulir Kontak Aktif**
-- **Carousel Skills**
-- **Proyek Unggulan**
+</details>
+
+---
+
+## 🚀 Fitur Unggulan
+
+- 🎨 **Desain Modern & Responsif**
+- ⚡ **Animasi Smooth** (Three.js, GSAP)
+- 🌗 **Dark/Light Mode**
+- 🌐 **Multi-Bahasa (EN/ID)**
+- 📬 **Formulir Kontak Aktif**
+- 🛠️ **Carousel Skills**
+- 🏆 **Proyek Unggulan**
 
 ---
 
 ## 🛠️ Tech Stack
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=fff)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=fff)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=222)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=fff)
-![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=fff)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=fff)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=fff)
-![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=222)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=fff)
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,vue,ts,nodejs,sass,tailwind,bootstrap,webpack,git"/>
+</p>
 
 ---
 
 ## 🌟 Proyek Unggulan
 
-### 🛒 **E-Commerce Platform**
+<details>
+<summary><b>🛒 E-Commerce Platform</b></summary>
 Platform e-commerce modern dengan React.js & Node.js. Fitur lengkap: keranjang, pembayaran, dashboard admin.
+</details>
 
-### 🌐 **Portfolio Website**
+<details>
+<summary><b>🌐 Portfolio Website</b></summary>
 Website portfolio responsif dengan animasi smooth & desain modern. Skor Lighthouse 95+.
+</details>
 
-### ✅ **Task Management App**
+<details>
+<summary><b>✅ Task Management App</b></summary>
 Aplikasi manajemen tugas dengan drag & drop, real-time update, dan kolaborasi tim.
+</details>
+
+---
+
+## 📈 Statistik GitHub
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=ofikur&show_icons=true&theme=tokyonight&hide_title=true"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ofikur&theme=tokyonight"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ofikur&layout=compact&theme=tokyonight"/>
+</p>
 
 ---
 
 ## 📬 Kontak
 
-- **Email:** moh.ofikurxyz@gmail.com
-- **GitHub:** [ofikur](https://github.com/ofikur)
-- **LinkedIn:** [ofikur](https://linkedin.com/in/ofikur)
-- **Instagram:** [ofikurr](https://instagram.com/ofikurr)
+<p align="center">
+  <a href="mailto:moh.ofikurxyz@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="https://github.com/ofikur"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
+  <a href="https://linkedin.com/in/ofikur"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://instagram.com/ofikurr"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+</p>
 
 ---
 
 <p align="center">
-  <b>Terima kasih sudah berkunjung! 🚀<br/>Jangan lupa kasih ⭐ jika suka dengan portfolio ini!</b>
+  <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="120"/>
 </p>
+
+<h2 align="center">
+  <b>Terima kasih sudah berkunjung! 🚀<br/>Jangan lupa kasih ⭐ jika suka dengan portfolio ini!</b>
+</h2>
