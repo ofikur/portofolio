@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
       en: "Front-End Web Developer",
     },
     heroDesc1: {
-      id: "Mengembangkan pengalaman web yang elegan dan fungsional dengan teknologi modern dan desain yang responsif.",
-      en: "Developing elegant and functional web experiences with modern technology and responsive design.",
+      id: "Mengembangkan pengalaman website yang elegan dan fungsional dengan teknologi modern dan desain yang responsif.",
+      en: "Developing elegant and functional website experiences with modern technology and responsive design.",
     },
     btnViewPortfolio: { id: "Lihat Portfolio", en: "View Portfolio" },
     btnDownloadCV: { id: "Download CV", en: "Download CV" },
