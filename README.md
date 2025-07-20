@@ -1,24 +1,28 @@
 <!-- README.md untuk Portfolio MOH. OFIKURRAHMAN -->
 
 <p align="center">
-  <img src="profile.jpg" alt="Profile" width="180" style="border-radius:50%; box-shadow:0 0 20px #FFD600;">
+  <img src="profile.jpg" alt="Profile" width="180" style="border-radius:50%; box-shadow:0 0 30px #FFD600, 0 0 0 8px #0a0a0a; margin-bottom: 10px;">
 </p>
 
-<h1 align="center" style="color:#FFD600; font-size:3rem; text-shadow:2px 2px 0 #0a0a0a;">PORTFOLIO.exe</h1>
+<h1 align="center" style="color:#FFD600; font-size:3rem; text-shadow:2px 2px 0 #0a0a0a; letter-spacing:2px;">
+  <span>PORTFOLIO<span style="color:#0a0a0a;">.</span><span style="color:#FFD600;">exe</span></span>
+</h1>
 
-<p align="center">
+<p align="center" style="font-size:1.3rem;">
   <b>MOH. OFIKURRAHMAN</b> <br/>
-  <i>Frontend Web Developer</i> <br/>
-  <a href="mailto:moh.ofikurxyz@gmail.com">Email</a> •
-  <a href="https://github.com/ofikur">GitHub</a> •
-  <a href="https://linkedin.com/in/ofikur">LinkedIn</a> •
-  <a href="https://instagram.com/ofikurr">Instagram</a>
+  <span style="color:#FFD600; font-weight:bold;">Frontend Web Developer</span> <br/>
+  <span style="font-size:1.1rem; color:#888;">Menciptakan pengalaman web modern, interaktif, dan responsif</span>
 </p>
 
----
-
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Selamat+Datang+di+Portfolio+Saya!;Frontend+Web+Developer+%7C+Modern+%26+Responsif;React%2C+Vue%2C+Node%2C+dan+lainnya!"/>
+  <a href="mailto:moh.ofikurxyz@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=fff"/></a>
+  <a href="https://github.com/ofikur"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=fff"/></a>
+  <a href="https://linkedin.com/in/ofikur"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=fff"/></a>
+  <a href="https://instagram.com/ofikurr"><img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=fff"/></a>
+</p>
+
+<p align="center" style="margin-top: 10px;">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&color=FFD600&center=true&vCenter=true&width=700&lines=Hi%2C+Saya+Ofikurrahman!;Frontend+Web+Developer+%7C+Modern+UI%2FUX;React%2C+Vue%2C+Node%2C+dan+lainnya!;Terbuka+untuk+Kolaborasi+dan+Proyek+Freelance"/>
 </p>
 
 ---
