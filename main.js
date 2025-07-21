@@ -34,10 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
     logoTextDesktop: { id: "PORTFOLIO.exe", en: "PORTFOLIO.exe" },
     logoTextMobile: { id: "PORTFOLIO", en: "PORTFOLIO" },
     navHome: { id: "Home", en: "Home" },
+    navAbout: { id: "Tentang", en: "About" },
     navSkills: { id: "Skills", en: "Skills" },
     navProjects: { id: "Proyek", en: "Projects" },
     navContact: { id: "Kontak", en: "Contact" },
     navHomeMobile: { id: "Home", en: "Home" },
+    navAboutMobile: { id: "Tentang", en: "About" },
     navSkillsMobile: { id: "Skills", en: "Skills" },
     navProjectsMobile: { id: "Proyek", en: "Projects" },
     navContactMobile: { id: "Kontak", en: "Contact" },
@@ -52,6 +54,20 @@ document.addEventListener("DOMContentLoaded", function () {
     btnViewPortfolio: { id: "Lihat Portfolio", en: "View Portfolio" },
     btnDownloadCV: { id: "Download CV", en: "Download CV" },
     btnContactMe: { id: "Hubungi Saya", en: "Contact Me" },
+    aboutTitle: { id: "&gt; Tentang Saya", en: "&gt; About Me" },
+    aboutGreeting: { id: "Halo! Saya Ofik.", en: "Hello! I'm Ofik." },
+    aboutP1: {
+      id: "Saya seorang <strong>Front-End Web Developer</strong> dari Pamekasan, Madura, dengan hasrat mendalam untuk menciptakan antarmuka web yang bersih, interaktif, dan ramah pengguna.",
+      en: "I am a <strong>Front-End Web Developer</strong> from Pamekasan, Madura, with a deep passion for creating clean, interactive, and user-friendly web interfaces.",
+    },
+    aboutP2: {
+      id: "Saat ini, saya sedang menempuh pendidikan di program studi <strong>Teknik Informatika</strong> di <strong>Universitas Islam Madura</strong>. Perjalanan saya di dunia digital didorong oleh rasa ingin tahu yang tak pernah padam terhadap teknologi web modern dan bagaimana teknologi tersebut dapat digunakan untuk membangun solusi yang fungsional dan elegan.",
+      en: "Currently, I am pursuing a degree in <strong>Informatics Engineering</strong> at the <strong>Islamic University of Madura</strong>. My journey in the digital world is driven by an unceasing curiosity for modern web technologies and how they can be used to build functional and elegant solutions.",
+    },
+    aboutP3: {
+      id: "Tujuan saya adalah menerjemahkan ide-ide kompleks menjadi pengalaman web yang mulus dan intuitif. Mari berkolaborasi dan wujudkan sesuatu yang hebat!",
+      en: "My goal is to translate complex ideas into seamless and intuitive web experiences. Let's collaborate and create something great!",
+    },
     skillsTitle: {
       id: "&gt; Keahlian Teknis",
       en: "&gt; Technical Skills",
@@ -146,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   window.setLanguage = function (lang) {
+    currentLang = lang;
     document.documentElement.lang = lang;
     document.querySelectorAll("[data-key]").forEach((el) => {
       const key = el.getAttribute("data-key");
@@ -168,9 +185,9 @@ document.addEventListener("DOMContentLoaded", function () {
       lang === "id" ? "EN" : "ID";
   };
 
-  window.switchLanguage = function () {
-    currentLang = currentLang === "id" ? "en" : "id";
-    setLanguage(currentLang);
+  window.switchLanguage = function (newLang) {
+    const langToSet = newLang ? newLang : currentLang === "id" ? "en" : "id";
+    setLanguage(langToSet);
   };
 
   // --- Logika Background 3D Grid dengan Three.js ---
@@ -228,10 +245,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // --- FUNGSI-FUNGSI LAINNYA ---
-  window.toggleTheme = function () {
+  window.toggleTheme = function (theme) {
     const body = document.body;
-    const newTheme =
-      body.getAttribute("data-theme") === "light" ? "dark" : "light";
+    let newTheme;
+    if (theme) {
+      newTheme = theme;
+    } else {
+      newTheme = body.getAttribute("data-theme") === "light" ? "dark" : "light";
+    }
     body.setAttribute("data-theme", newTheme);
     const icon = document.querySelector(".theme-toggle i");
     icon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
@@ -264,13 +285,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function scrollToSection(selector) {
+    const target = document.querySelector(selector);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      scrollToSection(this.getAttribute("href"));
       closeMobileNav();
     });
   });
@@ -290,12 +315,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- FUNGSI KIRIM PESAN DENGAN VALIDASI EMAIL ---
   window.handleSubmit = function (event) {
     event.preventDefault();
-
-    // Validasi email
     const emailInput = event.target.querySelector("#email");
     const emailValue = emailInput.value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!emailRegex.test(emailValue)) {
       alert(
         "Format email tidak valid. Harap masukkan alamat email yang benar ya!"
@@ -303,14 +325,11 @@ document.addEventListener("DOMContentLoaded", function () {
       emailInput.focus();
       return;
     }
-
     const submitBtn = event.target.querySelector(".submit-btn");
     const serviceID = "service_9ry8bp6";
     const templateID = "template_hmf52kt";
-
     submitBtn.innerHTML = languageData.formSendingBtn[currentLang];
     submitBtn.disabled = true;
-
     emailjs.sendForm(serviceID, templateID, event.target).then(
       () => {
         const successMessage = document.getElementById("successMessage");
@@ -333,6 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function typeWriterEffect(text) {
     const titleElement = document.getElementById("hero-title");
+    if (!titleElement) return;
     let i = 0;
     titleElement.innerHTML = `<span class="cursor"></span>`;
     function type() {
@@ -352,176 +372,307 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // --- SKILLS CAROUSEL LOGIC ---
-  const skillsCarousel = document.querySelector(".skills-carousel");
-  const skillsTrack = document.getElementById("skillsTrack");
+  function initSkillsCarousel() {
+    const skillsCarousel = document.querySelector(".skills-carousel");
+    if (!skillsCarousel) return;
+    const skillsTrack = document.getElementById("skillsTrack");
+    let skillsPosition = 0,
+      lastScrollY = window.pageYOffset,
+      autoScrollInterval,
+      scrollTimeout,
+      skillsTrackWidth = 0,
+      isDragging = false,
+      startX,
+      startScrollLeft;
 
-  function populateSkills() {
-    skillsTrack.innerHTML = "";
-    const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 2; i++) {
-      skillsList.forEach((skill) => {
-        const skillDiv = document.createElement("div");
-        skillDiv.className = "skill-item";
-        skillDiv.innerHTML = `<i class="${skill.icon}"></i><span>${skill.name}</span>`;
-        fragment.appendChild(skillDiv);
-      });
-    }
-    skillsTrack.appendChild(fragment);
-  }
-
-  let skillsPosition = 0;
-  let lastScrollY = window.pageYOffset;
-  let autoScrollInterval;
-  let scrollTimeout;
-  let skillsTrackWidth = 0;
-
-  function updateSkillsTrackWidth() {
-    skillsTrackWidth = skillsTrack.scrollWidth / 2;
-  }
-
-  let isDragging = false;
-  let startX;
-  let startScrollLeft;
-
-  function applyTransform() {
-    if (skillsTrackWidth > 0) {
-      while (skillsPosition > 0) {
-        skillsPosition -= skillsTrackWidth;
+    function populateSkills() {
+      skillsTrack.innerHTML = "";
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < 2; i++) {
+        skillsList.forEach((skill) => {
+          const skillDiv = document.createElement("div");
+          skillDiv.className = "skill-item";
+          skillDiv.innerHTML = `<i class="${skill.icon}"></i><span>${skill.name}</span>`;
+          fragment.appendChild(skillDiv);
+        });
       }
-      while (skillsPosition <= -skillsTrackWidth) {
-        skillsPosition += skillsTrackWidth;
-      }
+      skillsTrack.appendChild(fragment);
+      updateSkillsTrackWidth();
     }
-    skillsTrack.style.transform = `translateX(${skillsPosition}px)`;
-  }
 
-  function startAutoScroll() {
-    stopAutoScroll();
-    if (isDragging) return;
-    autoScrollInterval = setInterval(() => {
-      skillsPosition -= 0.5;
+    function updateSkillsTrackWidth() {
+      skillsTrackWidth = skillsTrack.scrollWidth / 2;
+    }
+
+    function applyTransform() {
+      if (skillsTrackWidth > 0) {
+        while (skillsPosition > 0) {
+          skillsPosition -= skillsTrackWidth;
+        }
+        while (skillsPosition <= -skillsTrackWidth) {
+          skillsPosition += skillsTrackWidth;
+        }
+      }
+      skillsTrack.style.transform = `translateX(${skillsPosition}px)`;
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      if (isDragging) return;
+      autoScrollInterval = setInterval(() => {
+        skillsPosition -= 0.5;
+        applyTransform();
+      }, 30);
+    }
+
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
+
+    function updateSkillsCarouselOnScroll() {
+      const currentScrollY = window.pageYOffset;
+      if (currentScrollY === lastScrollY) return;
+      const scrollDifference = currentScrollY - lastScrollY;
+      const scrollSpeed = 0.5; // Mengembalikan kecepatan ke nilai semula
+      skillsPosition -= scrollDifference * scrollSpeed;
+      lastScrollY = currentScrollY;
+      applyTransform(); // Memanggil transform dari sini
+    }
+
+    function handleDrag(currentX) {
+      if (!isDragging) return;
+      const walk = (currentX - startX) * 1.5;
+      skillsPosition = startScrollLeft + walk;
       applyTransform();
-    }, 30);
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-  }
-
-  function updateSkillsCarouselOnScroll() {
-    const currentScrollY = window.pageYOffset;
-    if (currentScrollY === lastScrollY) return;
-    const scrollDifference = currentScrollY - lastScrollY;
-    const scrollSpeed = 0.5;
-    if (scrollDifference > 0) {
-      skillsPosition -= Math.abs(scrollDifference) * scrollSpeed;
-    } else {
-      skillsPosition += Math.abs(scrollDifference) * scrollSpeed;
     }
-    applyTransform();
-    lastScrollY = currentScrollY;
+
+    function startDrag(e) {
+      isDragging = true;
+      startX = (e.pageX || e.touches[0].pageX) - skillsCarousel.offsetLeft;
+      startScrollLeft = skillsPosition;
+      stopAutoScroll();
+      skillsCarousel.style.cursor = "grabbing";
+    }
+
+    function endDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      skillsCarousel.style.cursor = "grab";
+      scrollTimeout = setTimeout(startAutoScroll, 1000);
+    }
+
+    skillsCarousel.addEventListener("mousedown", startDrag);
+    skillsCarousel.addEventListener("mouseup", endDrag);
+    skillsCarousel.addEventListener("mouseleave", endDrag);
+    skillsCarousel.addEventListener("mousemove", (e) => handleDrag(e.pageX));
+    skillsCarousel.addEventListener("touchstart", (e) =>
+      startDrag(e.touches[0])
+    );
+    skillsCarousel.addEventListener("touchend", endDrag);
+    skillsCarousel.addEventListener("touchcancel", endDrag);
+    skillsCarousel.addEventListener("touchmove", (e) =>
+      handleDrag(e.touches[0].pageX)
+    );
+    skillsCarousel.style.cursor = "grab";
+
+    // Listener terpisah agar tidak bentrok dengan listener utama
+    window.addEventListener("scroll", () => {
+      if (!isDragging && skillsCarousel) {
+        // Pastikan elemen ada
+        stopAutoScroll();
+        updateSkillsCarouselOnScroll();
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(startAutoScroll, 1000);
+      }
+    });
+
+    populateSkills();
+    startAutoScroll();
   }
 
-  skillsCarousel.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startX = e.pageX - skillsCarousel.offsetLeft;
-    startScrollLeft = skillsPosition;
-    stopAutoScroll();
-    skillsCarousel.style.cursor = "grabbing";
-  });
+  // --- TERMINAL LOGIC ---
+  function initTerminal() {
+    if (window.innerWidth <= 768) return; // Jangan jalankan terminal di mobile
 
-  skillsCarousel.addEventListener("mouseleave", () => {
-    if (!isDragging) return;
-    isDragging = false;
-    skillsCarousel.style.cursor = "grab";
-    scrollTimeout = setTimeout(startAutoScroll, 1000);
-  });
+    const terminalContent = document.getElementById("terminal-content");
+    const textInput = document.getElementById("terminal-input-text");
+    const hiddenInput = document.getElementById("hidden-input");
+    let commandHistory = [];
+    let historyIndex = -1;
 
-  skillsCarousel.addEventListener("mouseup", () => {
-    if (!isDragging) return;
-    isDragging = false;
-    skillsCarousel.style.cursor = "grab";
-    scrollTimeout = setTimeout(startAutoScroll, 1000);
-  });
+    const commands = {
+      help: {
+        description: "Menampilkan daftar perintah yang tersedia.",
+        execute: () => {
+          let helpText = "Perintah yang tersedia:<br>";
+          for (const cmd in commands) {
+            helpText += `<span class="help-command">${cmd.padEnd(
+              15
+            )}</span> <span class="help-desc">${
+              commands[cmd].description
+            }</span><br>`;
+          }
+          printOutput(helpText);
+        },
+      },
+      about: {
+        description: "Scroll ke bagian 'Tentang Saya'.",
+        execute: () => scrollToSection("#about"),
+      },
+      skills: {
+        description: "Scroll ke bagian 'Skills'.",
+        execute: () => scrollToSection("#skills"),
+      },
+      projects: {
+        description: "Scroll ke bagian 'Proyek'.",
+        execute: () => scrollToSection("#projects"),
+      },
+      contact: {
+        description: "Scroll ke bagian 'Kontak'.",
+        execute: () => scrollToSection("#contact"),
+      },
+      cv: {
+        description: "Mengunduh CV saya.",
+        execute: () => document.getElementById("cv-download-link").click(),
+      },
+      theme: {
+        description: "Ganti tema. Penggunaan: theme [light|dark]",
+        execute: (args) => {
+          if (args[0] === "light" || args[0] === "dark") {
+            toggleTheme(args[0]);
+            printOutput(`Tema diubah menjadi ${args[0]}.`);
+          } else {
+            printError("Penggunaan: theme [light|dark]");
+          }
+        },
+      },
+      lang: {
+        description: "Ganti bahasa. Penggunaan: lang [id|en]",
+        execute: (args) => {
+          if (args[0] === "id" || args[0] === "en") {
+            switchLanguage(args[0]);
+            printOutput(
+              `Bahasa diubah menjadi ${
+                args[0] === "id" ? "Indonesia" : "English"
+              }.`
+            );
+          } else {
+            printError("Penggunaan: lang [id|en]");
+          }
+        },
+      },
+      social: {
+        description: "Tampilkan link sosial media.",
+        execute: () => {
+          printOutput(
+            'GitHub:   <a href="https://github.com/ofikur" target="_blank">https://github.com/ofikur</a><br>' +
+              'LinkedIn: <a href="https://linkedin.com/in/ofikur" target="_blank">https://linkedin.com/in/ofikur</a><br>' +
+              'Instagram: <a href="https://instagram.com/ofikurr" target="_blank">https://instagram.com/ofikurr</a>'
+          );
+        },
+      },
+      clear: {
+        description: "Membersihkan layar terminal.",
+        execute: () => (terminalContent.innerHTML = ""),
+      },
+      sudo: {
+        description: "Hee-hee, mau coba apa nih?",
+        execute: () =>
+          printOutput("Hee-hee, akses ditolak ya! Kamu bukan root! 😉"),
+      },
+    };
 
-  skillsCarousel.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - skillsCarousel.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    skillsPosition = startScrollLeft + walk;
-    applyTransform();
-  });
+    function printOutput(html) {
+      terminalContent.innerHTML += `<div class="command-output">${html}</div>`;
+      terminalContent.scrollTop = terminalContent.scrollHeight;
+    }
+    function printError(text) {
+      terminalContent.innerHTML += `<div class="error">${text}</div>`;
+      terminalContent.scrollTop = terminalContent.scrollHeight;
+    }
 
-  skillsCarousel.addEventListener("touchstart", (e) => {
-    isDragging = true;
-    startX = e.touches[0].pageX - skillsCarousel.offsetLeft;
-    startScrollLeft = skillsPosition;
-    stopAutoScroll();
-  });
+    function processCommand(fullCommand) {
+      const [command, ...args] = fullCommand
+        .trim()
+        .split(" ")
+        .filter((i) => i);
+      if (!command) return;
 
-  skillsCarousel.addEventListener("touchend", () => {
-    if (!isDragging) return;
-    isDragging = false;
-    scrollTimeout = setTimeout(startAutoScroll, 1000);
-  });
+      printOutput(`<span class="prompt">$</span> ${fullCommand}`);
+      commandHistory.unshift(fullCommand);
+      historyIndex = -1;
 
-  skillsCarousel.addEventListener("touchcancel", () => {
-    if (!isDragging) return;
-    isDragging = false;
-    scrollTimeout = setTimeout(startAutoScroll, 1000);
-  });
+      if (commands[command]) {
+        commands[command].execute(args);
+      } else {
+        printError(
+          `bash: command not found: ${command}. Ketik 'help' untuk bantuan.`
+        );
+      }
+    }
 
-  skillsCarousel.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.touches[0].pageX - skillsCarousel.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    skillsPosition = startScrollLeft + walk;
-    applyTransform();
-  });
+    hiddenInput.addEventListener("input", (e) => {
+      textInput.textContent = e.target.value;
+    });
 
-  skillsCarousel.style.cursor = "grab";
+    hiddenInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        processCommand(hiddenInput.value);
+        hiddenInput.value = "";
+        textInput.textContent = "";
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (historyIndex < commandHistory.length - 1) {
+          historyIndex++;
+          hiddenInput.value = commandHistory[historyIndex];
+          textInput.textContent = hiddenInput.value;
+        }
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (historyIndex > 0) {
+          historyIndex--;
+          hiddenInput.value = commandHistory[historyIndex];
+          textInput.textContent = hiddenInput.value;
+        } else {
+          historyIndex = -1;
+          hiddenInput.value = "";
+          textInput.textContent = "";
+        }
+      }
+    });
+
+    window.focusInput = function () {
+      hiddenInput.focus();
+    };
+
+    printOutput(
+      "Selamat datang di portfolio.exe!<br>Ketik 'help' untuk melihat daftar perintah yang bisa kamu gunakan.<br>"
+    );
+    focusInput();
+  }
 
   // --- 👻 PROTEKSI LEVEL 1: MENGGANGGU PENGGUNA AWAM 👻 ---
-  // Mematikan klik kanan
   document.addEventListener("contextmenu", (event) => event.preventDefault());
-  // Mematikan beberapa shortcut keyboard untuk membuka inspect element
   document.onkeydown = function (e) {
-    // F12
-    if (e.keyCode == 123) {
-      return false;
-    }
-    // Ctrl+Shift+I
-    if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
-      return false;
-    }
-    // Ctrl+Shift+J
-    if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
-      return false;
-    }
-    // Ctrl+U
-    if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+    if (e.target.id === "hidden-input") return;
+    if (
+      e.keyCode == 123 ||
+      (e.ctrlKey &&
+        e.shiftKey &&
+        (e.keyCode == "I".charCodeAt(0) || e.keyCode == "J".charCodeAt(0))) ||
+      (e.ctrlKey && e.keyCode == "U".charCodeAt(0))
+    ) {
       return false;
     }
   };
 
   // --- EVENT LISTENERS & INISIALISASI ---
-  window.addEventListener("scroll", () => {
-    updateActiveNav();
-    if (!isDragging) {
-      stopAutoScroll();
-      updateSkillsCarouselOnScroll();
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(startAutoScroll, 1000);
-    }
-  });
+  window.addEventListener("scroll", updateActiveNav);
 
-  // Inisialisasi semua fungsi saat halaman dimuat
   initThreeJSBackground();
-  populateSkills();
-  updateSkillsTrackWidth();
+  initSkillsCarousel();
+  initTerminal();
   updateActiveNav();
   setLanguage(currentLang);
-  startAutoScroll();
 });

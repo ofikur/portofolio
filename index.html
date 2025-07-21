@@ -38,17 +38,18 @@
             <a href="#home" class="nav-link active" data-key="navHome">Home</a>
           </li>
           <li>
+            <a href="#about" class="nav-link" data-key="navAbout">Tentang</a>
+          </li>
+          <li>
             <a href="#skills" class="nav-link" data-key="navSkills">Skills</a>
           </li>
           <li>
             <a href="#projects" class="nav-link" data-key="navProjects"
-              >Projects</a
+              >Proyek</a
             >
           </li>
           <li>
-            <a href="#contact" class="nav-link" data-key="navContact"
-              >Contact</a
-            >
+            <a href="#contact" class="nav-link" data-key="navContact">Kontak</a>
           </li>
         </ul>
         <div class="nav-controls">
@@ -83,6 +84,15 @@
         </li>
         <li>
           <a
+            href="#about"
+            class="nav-link"
+            onclick="closeMobileNav()"
+            data-key="navAboutMobile"
+            >Tentang</a
+          >
+        </li>
+        <li>
+          <a
             href="#skills"
             class="nav-link"
             onclick="closeMobileNav()"
@@ -96,7 +106,7 @@
             class="nav-link"
             onclick="closeMobileNav()"
             data-key="navProjectsMobile"
-            >Projects</a
+            >Proyek</a
           >
         </li>
         <li>
@@ -105,7 +115,7 @@
             class="nav-link"
             onclick="closeMobileNav()"
             data-key="navContactMobile"
-            >Contact</a
+            >Kontak</a
           >
         </li>
       </ul>
@@ -115,6 +125,35 @@
       <section id="home" class="hero">
         <div class="container">
           <div class="hero-content">
+            <div class="terminal-container fade-in">
+              <div id="terminal" onclick="focusInput()">
+                <div class="terminal-header">
+                  <div class="terminal-controls">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="terminal-title">user@ofikur.com</span>
+                </div>
+                <div id="terminal-content"></div>
+                <div class="terminal-input-line">
+                  <span class="prompt">$</span>
+                  <span id="terminal-input-text"></span>
+                  <span id="terminal-cursor"></span>
+                </div>
+              </div>
+              <input type="text" id="hidden-input" />
+            </div>
+
+            <div class="hero-image">
+              <img
+                src="profile.jpg"
+                alt="MOH. OFIKURRAHMAN"
+                class="profile-image"
+                onerror="this.onerror=null;this.src='https://placehold.co/300x300/0a0a0a/ffff00?text=Error';"
+              />
+            </div>
+
             <div class="hero-text">
               <h1 id="hero-title"></h1>
               <div class="subtitle" data-key="heroSubtitle">
@@ -129,7 +168,12 @@
                   <i class="fas fa-folder-open"></i>
                   <span data-key="btnViewPortfolio">Lihat Portfolio</span>
                 </a>
-                <a href="CV-MOH-OFIKURRAHMAN.pdf" class="btn" download>
+                <a
+                  href="CV-MOH-OFIKURRAHMAN.pdf"
+                  class="btn"
+                  download
+                  id="cv-download-link"
+                >
                   <i class="fas fa-download"></i>
                   <span data-key="btnDownloadCV">Download CV</span>
                 </a>
@@ -139,13 +183,43 @@
                 </a>
               </div>
             </div>
-            <div class="hero-image">
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="container">
+          <h2 class="fade-in" data-key="aboutTitle">&gt; Tentang Saya</h2>
+          <div class="about-content fade-in">
+            <div class="about-image">
               <img
                 src="profile.jpg"
-                alt="MOH. OFIKURRAHMAN"
-                class="profile-image"
-                onerror="this.onerror=null;this.src='https://placehold.co/300x300/0a0a0a/ffff00?text=Error';"
+                alt="Foto Profil Ofikurrahman"
+                class="about-profile-image"
+                onerror="this.onerror=null;this.src='https://placehold.co/300x300/0a0a0a/ffff00?text=Ofik';"
               />
+            </div>
+            <div class="about-text">
+              <h3 data-key="aboutGreeting">Halo! Saya Ofik.</h3>
+              <p data-key="aboutP1">
+                Saya seorang <strong>Front-End Web Developer</strong> dari
+                Pamekasan, Madura, dengan hasrat mendalam untuk menciptakan
+                antarmuka web yang bersih, interaktif, dan ramah pengguna.
+              </p>
+              <p data-key="aboutP2">
+                Saat ini, saya sedang menempuh pendidikan di program studi
+                <strong>Teknik Informatika</strong> di
+                <strong>Universitas Islam Madura</strong>. Perjalanan saya di
+                dunia digital didorong oleh rasa ingin tahu yang tak pernah
+                padam terhadap teknologi web modern dan bagaimana teknologi
+                tersebut dapat digunakan untuk membangun solusi yang fungsional
+                dan elegan.
+              </p>
+              <p data-key="aboutP3">
+                Tujuan saya adalah menerjemahkan ide-ide kompleks menjadi
+                pengalaman web yang mulus dan intuitif. Mari berkolaborasi dan
+                wujudkan sesuatu yang hebat!
+              </p>
             </div>
           </div>
         </div>
