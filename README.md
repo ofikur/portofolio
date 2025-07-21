@@ -33,7 +33,7 @@ Portfolio ini menampilkan karya, keahlian, dan pengalaman saya sebagai Front-End
 
 - **🖥️ Terminal Interaktif (Desktop)**
 - **📱 Desain Adaptif (Terminal di Desktop, Profil di Mobile)**
-- **Animasi Smooth** (Three.js, CSS)
+- **Animasi Smooth** (Three.js, GSAP)
 - **Dark/Light Mode**
 - **Multi-Bahasa (EN/ID)**
 - **Formulir Kontak Aktif**
